@@ -30,10 +30,10 @@
     <style name="ToolbarTheme" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?attr/actionBarSize</item>
-        <item name="com.lutech.hongbao:contentInsetLeft">0dp</item>
-        <item name="com.lutech.hongbao:contentInsetStart">0dp</item>
-        <item name="com.lutech.hongbao:contentInsetStartWithNavigation">0dp</item>
-        <item name="com.lutech.hongbao:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="contentInsetLeft">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
     </style>
 
     <style name="ToolbarTitleTheme">

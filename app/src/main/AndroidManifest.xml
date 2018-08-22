@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.lutech.hongbao">
+          package="com.santech.hongbao">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -22,7 +22,7 @@
 
         <!-- arms配置 -->
         <meta-data
-            android:name="com.lutech.hongbao.app.GlobalConfiguration"
+            android:name="com.santech.hongbao.app.GlobalConfiguration"
             android:value="ConfigModule"
             />
 
