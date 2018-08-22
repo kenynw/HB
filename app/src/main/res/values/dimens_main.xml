@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--MainActivity-->
+    <dimen name="main_tool_bar_height">50dp</dimen>//首页顶部toolbar高度
+    <dimen name="main_tab_height">52dp</dimen>//首页底部菜单高度
+    <dimen name="main_tab_icon_size">22dp</dimen>//首页底部菜单高度
+    <dimen name="main_tab_txt_size">11dp</dimen>//首页底部菜单文字大小
+</resources>

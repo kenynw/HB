@@ -3,7 +3,7 @@ package com.santech.hongbao.module.main.di.component;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.di.scope.ActivityScope;
 import com.santech.hongbao.module.main.di.module.MainModule;
-import com.santech.hongbao.module.main.ui.MainActivity;
+import com.santech.hongbao.module.main.ui.activity.MainActivity;
 
 import dagger.Component;
 
