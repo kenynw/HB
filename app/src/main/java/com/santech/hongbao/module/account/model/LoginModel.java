@@ -7,7 +7,7 @@ import com.santech.hongbao.app.DefaultTransform;
 import com.santech.hongbao.module.account.UserContract;
 import com.santech.hongbao.module.account.model.api.service.AccountService;
 import com.santech.hongbao.module.account.model.bean.User;
-import com.santech.hongbao.util.MimiUtils;
+import com.santech.hongbao.util.HBUtils;
 
 import javax.inject.Inject;
 
@@ -26,7 +26,7 @@ public class LoginModel extends BaseModel implements UserContract.Model {
         return mRepositoryManager.obtainRetrofitService(AccountService.class)
                 .login(mobile, password, deviceId)
                 .compose(new DefaultTransform<>())
-                .doOnNext(MimiUtils::setUser);
+                .doOnNext(HBUtils::setUser);
     }
 
 }

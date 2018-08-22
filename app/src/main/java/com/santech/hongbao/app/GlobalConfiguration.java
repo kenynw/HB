@@ -9,6 +9,7 @@ import com.jess.arms.di.module.GlobalConfigModule;
 import com.jess.arms.http.log.RequestInterceptor;
 import com.jess.arms.integration.ConfigModule;
 import com.santech.hongbao.BuildConfig;
+import com.santech.hongbao.app.constant.Constant;
 import com.santech.hongbao.app.http.WrapperConverterFactory;
 
 import java.util.List;
@@ -36,7 +37,6 @@ public class GlobalConfiguration implements ConfigModule {
                 .globalHttpHandler(new GlobalHttpHandlerImp())
                 // 用来处理 rxjava 中发生的所有错误,rxjava 中发生的每个错误都会回调此接口
                 // rxjava必要要使用ErrorHandleSubscriber(默认实现Subscriber的onError方法),此监听才生效
-                .responseErrorListener(new ResponseErrorListenerImp())
                 .gsonConfiguration((context12, gsonBuilder) -> {
                     gsonBuilder.serializeNulls() // 支持序列化null的参数
                             .enableComplexMapKeySerialization();// 支持将序列化key为object的map,默认只能序列化key为string的map
@@ -73,6 +73,7 @@ public class GlobalConfiguration implements ConfigModule {
     @Override
     public void injectFragmentLifecycle(Context context, List<FragmentManager.FragmentLifecycleCallbacks> lifecycles) {
         //向Fragment的生命周期中注入一些自定义逻辑
+        lifecycles.add(new FragmentLifecycleCallbacksImp());
     }
 
 }

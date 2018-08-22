@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
+import com.santech.hongbao.bean.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,26 +42,34 @@ public class WrapperResponseBodyConverter<T> implements Converter<ResponseBody, 
             Object object = new JSONTokener(result).nextValue();
             if (object instanceof JSONObject) {
                 JSONObject data = (JSONObject) object;
-//                LogUtil.json(data.toString());
 
                 if (data.has("code")) {
                     int code = data.getInt("code");
                     if (code != HttpResponseCode.SUCCESS) {
-                        if (data.has("message")) {
-                            throw new ApiException(code, data.getString("message"));
-                        }  else {
-                            throw new ApiException(code, "网络错误");
+                        if (data.has("msg")) {
+                            throw new ServicesException(code, data.getString("msg"));
+                        } else {
+                            throw new ServicesException(code, "请求服务器失败");
                         }
                     }
 
-                    if (data.has("data") && !data.isNull("data")) {
+                    if (mType.equals(Response.class)) { // 如果是基础类型，就直接解析
+                        return new Gson().fromJson(result, mType);
+                    } else if (data.has("data") && !data.isNull("data")) {
                         result = data.opt("data").toString();
                     }
+                } else {
+                    // 防止没有code字段的情况
+                    throw new ServicesException(400, "请求服务器失败");
                 }
+            }
+            if (mType.equals(String.class)) {
+                //noinspection unchecked
+                return (T) result;
             }
             return new Gson().fromJson(result, mType);
         } catch (JSONException | JsonSyntaxException e) {
-            throw new ApiException(HttpResponseCode.ERROR_PARSE_FAIL, "数据解析错误");
+            throw new ServicesException(HttpResponseCode.ERROR_PARSE_FAIL, "数据解析错误" + e.getLocalizedMessage());
         }
     }
 

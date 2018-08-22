@@ -5,13 +5,13 @@ import java.io.IOException;
 /**
  */
 
-public class ApiException extends IOException {
+public class ServicesException extends IOException {
 
     private int code;
 
     private String msg;
 
-    public ApiException(int code, String msg) {
+    public ServicesException(int code, String msg) {
         super(msg);
         this.code = code;
         this.msg = msg;

@@ -7,17 +7,21 @@ package com.santech.hongbao.app.http;
  */
 public interface HttpResponseCode {
 
-     int SUCCESS = 1;//请求成功
-     int ERROR_UNKNOWN_HOST = -1001; // 网络不可用
-     int ERROR_SOCKET_TIMEOUT = -1002;// 请求网络超时
-     int ERROR_INTERNAL_SERVER = 500; // 服务器发生错误
-     int ERROR_NOT_EXIST = 404; // 请求地址不存在
-     int ERROR_REJECTED = 403; // 请求被服务器拒绝
-     int ERROR_REDIRECTED = 307; // 请求被重定向到其他页面
-     int ERROR_PARSE_FAIL = -1006;// 数据解析错误
+    int SUCCESS = 200;//请求成功
+    int ERROR_NO_PERMISSION = 401; // 未授权的访问
+    int ERROR_NOT_EXIST = 404; // 未找到对应的服务
+    int ERROR_INTERNAL_SERVER = 500; // 服务器发生错误
+    int ERROR_REJECTED = 403; // 请求被服务器拒绝
+    int ERROR_PARAM_ERROR = 4001;// 参数异常
+    int ERROR_DEVICE_DISABLE = 4002;// 设备被禁用
+    int ERROR_USER_DISABLE = 4003;// 用户被禁用
+    int ERROR_UPLOAD_FILE = 4004; // 上传文件失败
 
-     int ERROR_PARAM_ERROR = -1003;//网络不可用
-     int ERROR_EXIST = -1004;//已关注过
-     int ERROR_USER_NOT_EXIST = -1005;//用户不存在
-     int ERROR_MOBILE_EXIT = -1007; // 手机号码已注册
+    int ERROR_BALANCE_NOT_ENOUGH = 500; // 余额不足
+
+    int ERROR_PARSE_FAIL = -1000;// 数据解析错误
+    int ERROR_UNKNOWN = -1001; // 未知错误
+    int ERROR_UNKNOWN_HOST = -1002; // 网络不可用
+    int ERROR_SOCKET_TIMEOUT = -1003;// 请求网络超时
+
 }

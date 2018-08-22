@@ -10,7 +10,7 @@ import com.santech.hongbao.module.account.model.bean.User;
  * Copyright (c) 2018 Miguan Inc All rights reserved.
  * Created by Liaopeikun on 2018/6/21
  */
-public class MimiUtils {
+public class HBUtils {
 
     private static Context sContext;
 

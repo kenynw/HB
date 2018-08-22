@@ -10,7 +10,7 @@ import com.jess.arms.mvp.BasePresenter;
 import com.jess.arms.utils.RxLifecycleUtils;
 import com.santech.hongbao.module.account.model.bean.User;
 import com.santech.hongbao.module.main.MainContract;
-import com.santech.hongbao.util.MimiUtils;
+import com.santech.hongbao.util.HBUtils;
 
 import javax.inject.Inject;
 
@@ -44,7 +44,7 @@ public class MainPresenter extends BasePresenter<MainContract.Model, MainContrac
     }
 
     private void getUnreadMsg() {
-        User user = MimiUtils.getUser();
+        User user = HBUtils.getUser();
         mModel.getUnreadMsg("186")
                 .compose(RxLifecycleUtils.bindToLifecycle(mRootView))
                 .subscribe(new ErrorHandleSubscriber<User>(mErrorHandler) {

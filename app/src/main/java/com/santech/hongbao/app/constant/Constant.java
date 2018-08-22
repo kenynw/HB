@@ -1,4 +1,4 @@
-package com.santech.hongbao.app;
+package com.santech.hongbao.app.constant;
 
 import com.santech.hongbao.BuildConfig;
 
